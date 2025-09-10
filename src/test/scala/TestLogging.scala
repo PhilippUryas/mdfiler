@@ -1,9 +1,7 @@
 import cats.effect.{IO, IOApp}
 import org.typelevel.log4cats.slf4j.Slf4jLogger
 import org.typelevel.log4cats.Logger
-
-import org.slf4j.LoggerFactory
-
+import org.slf4j.{Logger, LoggerFactory}
 object PlainSlf4jTest extends App {
   val logger = LoggerFactory.getLogger("PlainSlf4jTest")
   logger.info("Hello from SLF4J")

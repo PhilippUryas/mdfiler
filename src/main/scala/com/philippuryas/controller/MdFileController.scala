@@ -23,7 +23,7 @@ object MdFileController {
   given Logger[IO] = Slf4jLogger.getLogger[IO]
 
   val unauthorizedRoutes: HttpRoutes[IO] = HttpRoutes.of {
-    case GET -> Root / "index.html" =>
+    case GET -> Root =>
       StaticFile
         .fromResource("/static/index.html", Some(org.http4s.Request[IO]()))
         .getOrElseF(NotFound())

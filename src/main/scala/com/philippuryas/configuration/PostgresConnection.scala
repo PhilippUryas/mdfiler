@@ -7,7 +7,8 @@ import doobie.util.log.LogEvent
 import doobie.util.transactor.Transactor.Aux
 
 object PostgresConnection {
-  val dbUrl = "jdbc:postgresql://localhost:5432/legato"
+  //ToDo: configuration
+  val dbUrl = "jdbc:postgresql://localhost:5432/mdfiler"
   val dbUser = "admin"
   val dbPassword = "admin"
 
