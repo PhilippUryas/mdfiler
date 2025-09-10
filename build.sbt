@@ -3,7 +3,6 @@ ThisBuild / version          := "0.0.1"
 ThisBuild / organization     := "com.philippuryas"
 
 lazy val root = (project in file("."))
-//  .enablePlugins(LiquibasePlugin)
   .settings(
     name := "mdfiler",
 
@@ -14,15 +13,7 @@ lazy val root = (project in file("."))
       "-encoding", "UTF-8"
     ),
 
-//    liquibaseProps := Map(
-//      "changeLogFile" -> "src/main/resources/db/changelog.xml", // твой changelog
-//      "url"           -> "jdbc:postgresql://localhost:5432/mydb",
-//      "username"      -> "postgres",
-//      "password"      -> "secret",
-//      "driver"        -> "org.postgresql.Driver"
-//    ),
-
-    // Зависимости
+    // Dependencies
     libraryDependencies ++= Seq(
       // Doobie
       "org.tpolecat"    %% "doobie-core"      % "1.0.0-RC8",

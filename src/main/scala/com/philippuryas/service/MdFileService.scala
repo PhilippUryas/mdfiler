@@ -30,5 +30,7 @@ object MdFileService {
     MdRepository
       .getAllByUserId(userId)
 
+  def deleteFile(fileName: String, userId: Long): IO[Either[Throwable, Int]] =
+    MdRepository.deleteFile(fileName, userId)
 
 }

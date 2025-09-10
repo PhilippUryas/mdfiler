@@ -52,20 +52,27 @@ object MdRepository {
 
   def getFilesByFileNameAndUserId(file_name: String, user_id: Long): IO[Either[Throwable, List[MDEntity]]] =
     sql"""SELECT
-      |    file_name,
-      |    file_hash,
-      |    prev_hash,
-      |    insert_date,
-      |    ROW_NUMBER() OVER (PARTITION BY file_name ORDER BY insert_date ASC) AS version_number
-      |FROM md_files
-      |WHERE file_name = '${file_name}' and user_id = ${user_id}
-      |ORDER BY version_number;
-      |"""
+         |    file_name,
+         |    file_hash,
+         |    prev_hash,
+         |    insert_date,
+         |    ROW_NUMBER() OVER (PARTITION BY file_name ORDER BY insert_date ASC) AS version_number
+         |FROM md_files
+         |WHERE file_name = '${file_name}' and user_id = ${user_id}
+         |ORDER BY version_number;
+         |"""
       .query[MDEntity]
       .to[List]
       .transact(connection)
       .attempt
-  //  def getPrevFile(curHash: String) : IO[Either[Throwable, MDEntity]] =
-  //    sql"""SELECT user_id, file_name, file_data FROM md_files WHERE """
+
+  def deleteFile(fileName: String, userId: Long): IO[Either[Throwable, Int]] =
+    sql"""UPDATE md_files SET delete_date = NOW()
+            where file_name = ${fileName}
+             and user_id = ${userId}"""
+      .update
+      .run
+      .transact(connection)
+      .attempt
 
 }

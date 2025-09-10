@@ -9,6 +9,8 @@ import org.http4s.server.*
 
 case class User(id: Long, name: String)
 
+//ToDo: add auth using JWT
+
 object Auth {
   private val users = Map(
     "token123" -> User(1, "Philipp"),

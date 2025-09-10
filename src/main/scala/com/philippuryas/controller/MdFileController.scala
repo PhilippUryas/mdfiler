@@ -28,9 +28,6 @@ object MdFileController {
         .fromResource("/static/index.html", Some(org.http4s.Request[IO]()))
         .getOrElseF(NotFound())
 
-    case GET -> Root / "hello" =>
-      Ok("Hello from MdFileController!")
-
     case GET -> Root / "file" / LongVar(id) =>
       for {
         md <- MdFileService.get(id)
@@ -69,6 +66,5 @@ object MdFileController {
           }
 
       } yield resp
-
   }
 }
