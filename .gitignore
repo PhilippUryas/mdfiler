@@ -1,0 +1,29 @@
+# ===== IDEA =====
+.idea/
+*.iml
+*.iws
+.idea/workspace.xml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/dbnavigator.xml
+.idea/uiDesigner.xml
+.idea/scala_compiler.xml
+.idea/scala_settings.xml
+
+# ===== SBT / Scala =====
+/target/
+/project/target/
+/dist/
+/lib_managed/
+/src_managed/
+/.worksheet/
+
+# ===== OS / Misc =====
+.DS_Store
+Thumbs.db
+
+# ===== Logs =====
+*.log
+
+# ===== Optional: Temporary test files =====
+/.idea/
