@@ -2,6 +2,8 @@
 
 A simple Scala web app for working with Markdown files
 
+![img](doc/images/ui0.0.1.png)
+
 ---
 
 ## Technologies
@@ -23,7 +25,7 @@ A simple Scala web app for working with Markdown files
 
 ---
 
-## Установка
+## Installation
 
 1. Install JDK 17+
 2. Install SBT

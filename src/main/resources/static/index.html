@@ -98,10 +98,7 @@
         <input type="text" id="fileName" value="new_file.md" placeholder="Имя файла">
         <button id="saveBtn">Сохранить</button>
     </div>
-    <div>
-        <input type="number" id="fileId" placeholder="ID файла">
-        <button id="loadBtn">Получить</button>
-    </div>
+
 </div>
 
 <div id="message"></div>
@@ -121,9 +118,7 @@
     const editor = document.getElementById('editor');
     const preview = document.getElementById('preview');
     const fileNameInput = document.getElementById('fileName');
-    const fileIdInput = document.getElementById('fileId');
     const saveBtn = document.getElementById('saveBtn');
-    const loadBtn = document.getElementById('loadBtn');
     const messageEl = document.getElementById('message');
     const filesContainer = document.getElementById('filesContainer');
 
@@ -188,24 +183,24 @@
       }
     });
 
-    loadBtn.addEventListener('click', async () => {
-      const id = fileIdInput.value;
-      if (!id) return;
-      try {
-        const resp = await fetch(`/file/${id}`);
-        if (!resp.ok) {
-          messageEl.textContent = 'Файл не найден ❌';
-          return;
-        }
-        const data = await resp.json();
-        fileNameInput.value = data.fileName;
-        editor.value = data.fileData;
-        updatePreview();
-        messageEl.textContent = 'Файл загружен ✅';
-      } catch (e) {
-        messageEl.textContent = 'Ошибка сети ❌';
-      }
-    });
+<!--    loadBtn.addEventListener('click', async () => {-->
+<!--      const id = fileIdInput.value;-->
+<!--      if (!id) return;-->
+<!--      try {-->
+<!--        const resp = await fetch(`/file/${id}`);-->
+<!--        if (!resp.ok) {-->
+<!--          messageEl.textContent = 'Файл не найден ❌';-->
+<!--          return;-->
+<!--        }-->
+<!--        const data = await resp.json();-->
+<!--        fileNameInput.value = data.fileName;-->
+<!--        editor.value = data.fileData;-->
+<!--        updatePreview();-->
+<!--        messageEl.textContent = 'Файл загружен ✅';-->
+<!--      } catch (e) {-->
+<!--        messageEl.textContent = 'Ошибка сети ❌';-->
+<!--      }-->
+<!--    });-->
 
     // Загружаем список при старте
     fetchFilesList();
