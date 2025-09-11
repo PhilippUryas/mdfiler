@@ -26,8 +26,8 @@ A simple Scala web app for working with Markdown files
 2. Install SBT
 3. clone repository:
 ```bash
-git clone <URL_репозитория>
-cd <имя_проекта>
+git clone https://github.com/PhilippUryas/mdfiler.git
+cd mdfiler
 ```
 4. up postgresql in docker:
 ```bash
